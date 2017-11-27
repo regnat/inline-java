@@ -382,13 +382,13 @@ withStatic [d|
   instance (SingI ty, IsReferenceType ty) => Reflect (J ty) ty where
     reflect x = newLocalRef x
 
-  type instance Interp () = 'Class "java.lang.Object"
+  type instance Interp () = 'Class "java.lang.Short"
 
-  instance Reify () ('Class "java.lang.Object") where
+  instance Reify () ('Class "java.lang.Short") where
     reify _ = return ()
 
-  instance Reflect () ('Class "java.lang.Object") where
-    reflect () = new []
+  instance Reflect () ('Class "java.lang.Short") where
+    reflect () = new [JShort 0]
 
   type instance Interp ByteString = 'Array ('Prim "byte")
 
